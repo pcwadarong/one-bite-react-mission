@@ -38,7 +38,7 @@ console.log(isPrimeNumber(12)); //false
 // Quiz 3 : 계산기 (콜백함수)
 
 const add = (num1, num2) => num1 + num2;
-const subtract = (num1, num2) => Math.abs(num1 - num2);
+const subtract = (num1, num2) => num1 - num2;
 const calculate = (num1, num2, operation) => {
     console.log(operation(num1, num2));
 }
