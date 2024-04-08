@@ -1,0 +1,29 @@
+section {
+  display: flex;
+  justify-content: center;
+}
+
+.orderEditor {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  color: #33c1c1;
+}
+
+p,
+button {
+  margin-top: 20px;
+}
+
+input {
+  padding: 10px;
+}
+button {
+  border-radius: 20px;
+  border: none;
+  background-color: #33c1c1;
+  color: white;
+  height: 35px;
+}
