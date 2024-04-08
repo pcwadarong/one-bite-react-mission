@@ -1,0 +1,39 @@
+section {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  color: white;
+  font-family: "Noto Sans", sans-serif;
+}
+
+h1 {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+div {
+  display: flex;
+  align-items: center;
+}
+
+label {
+  margin-right: 8px;
+}
+
+input {
+  display: flex;
+  flex: 1;
+  margin-bottom: 6px;
+  padding: 10px;
+  border: 2px solid rgb(255, 255, 255, 0.75);
+  border-radius: 20px;
+  text-align: center;
+  background: linear-gradient(
+    17deg,
+    rgb(120, 111, 171) 0%,
+    rgb(126, 148, 193) 100%
+  );
+  color: rgb(255, 255, 255);
+}
