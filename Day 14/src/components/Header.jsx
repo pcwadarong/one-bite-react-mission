@@ -1,4 +1,6 @@
-export default function Header() {
+import { memo } from "react";
+
+function Header() {
   return (
     <div className="Header">
       <h3>📆 Today is..</h3>
@@ -6,3 +8,5 @@ export default function Header() {
     </div>
   );
 };
+
+export default memo(Header);
