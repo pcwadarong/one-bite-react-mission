@@ -1,16 +1,17 @@
 import { useState, useRef } from 'react';
 
-export default function Editor({ onCreate }) {
+const Editor = ({ onCreate }) => {
   const [content, setContent] = useState('');
   const contentRef = useRef();
 
-  const onKeyDown = (e) => {
+  const onChangeContent = (e) => {
+    setContent(e.target.value);
+  };
+
+  const onKeydown = (e) => {
     if (e.keyCode === 13) {
       onSubmit();
     }
-  };
-  const onChangeInput = (e) => {
-    setContent(e.target.value);
   };
 
   const onSubmit = () => {
@@ -26,13 +27,15 @@ export default function Editor({ onCreate }) {
     <div className="Editor">
       <input
         ref={contentRef}
-        value={content}
-        onKeyDown={onKeyDown}
+        placeholder="새로운 Todo..."
+        onKeyDown={onKeydown}
         type="text"
-        placeholder="새로운 todo..."
-        onChange={onChangeInput}
+        value={content}
+        onChange={onChangeContent}
       />
-      <button onClick={onSubmit}>submit</button>
+      <button onClick={onSubmit}>추가</button>
     </div>
   );
-}
+};
+
+export default Editor;

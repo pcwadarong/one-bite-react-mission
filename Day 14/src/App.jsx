@@ -2,34 +2,51 @@ import Header from './components/Header';
 import Editor from './components/Editor';
 import List from './components/List';
 import './assets/css/styles.css';
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useReducer } from 'react';
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'CREATE':
+      return [action.data, ...state];
+    case 'UPDATE':
+      return state.map((item) =>
+        item.id === action.targetId ? { ...item, isDone: !item.isDone } : item,
+      );
+    case 'DELETE':
+      return state.filter((item) => item.id !== action.targetId);
+    default:
+      return state;
+  }
+}
 
 function App() {
-  const [todos, setTodo] = useState([]);
+  const [todos, dispatch] = useReducer(reducer, []);
   const isRef = useRef(3);
 
   const onCreate = (content) => {
-    setTodo([
-      {
+    dispatch({
+      type: 'CREATE',
+      data: {
         id: isRef.current++,
         isDone: false,
         content: content,
         date: new Date().getTime(),
       },
-      ...todos,
-    ]);
+    });
   };
 
   const onUpdate = (targetId) => {
-    setTodo(
-      todos.map((todo) =>
-        todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo,
-      ),
-    );
+    dispatch({
+      type: 'UPDATE',
+      targetId: targetId,
+    });
   };
 
   const onDelete = (targetId) => {
-    setTodo(todos.filter((todo) => todo.id !== targetId));
+    dispatch({
+      type: 'DELETE',
+      targetId: targetId,
+    });
   };
 
   return (
