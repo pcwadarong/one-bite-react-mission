@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import ContactEditor from './components/ContactEditor';
+import ContactList from './components/ContactList';
+import { useRef, useReducer, useEffect } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+function reducer(state, action) {
+  switch (action.type) {
+    case 'CREATE':
+      return [action.data, ...state];
+    case 'DELETE':
+      return state.filter((item) => item.id !== action.id);
+    default:
+      return state;
+  }
 }
 
-export default App
+function App() {
+  const [contacts, dispatch] = useReducer(reducer, []);
+  const isRef = useRef(0);
+  useEffect(() => {
+    console.log('update', contacts);
+  }, [contacts]);
+
+  const onCreate = (name, contact) => {
+    dispatch({
+      type: 'CREATE',
+      data: {
+        id: isRef.current++,
+        name,
+        contact,
+      },
+    });
+  };
+
+  const onDelete = (id) => {
+    dispatch({
+      type: 'DELETE',
+      id,
+    });
+  };
+
+  return (
+    <div className="App">
+      <h2>Contact List</h2>
+      <section>
+        <ContactEditor onCreate={onCreate} />
+      </section>
+      <section>
+        <ContactList contacts={contacts} onDelete={onDelete} />
+      </section>
+    </div>
+  );
+}
+
+export default App;

@@ -1,8 +1,6 @@
-# React + Vite
+## Contact List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- useReducer, useEffect, useRef, useState
+- React + Vite + EsLint + Prettier
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![gif](https://github.com/winterlood/onebite-react-challenge/assets/86795558/80e72080-67ea-43ec-a151-7a05a8e4d4a7)
