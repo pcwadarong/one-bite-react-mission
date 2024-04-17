@@ -1,7 +1,7 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, memo } from 'react';
 import './ContactEditor.css';
 
-export default function ContactEditor({ onCreate }) {
+function ContactEditor({ onCreate }) {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const [state, setState] = useState({
@@ -58,3 +58,5 @@ export default function ContactEditor({ onCreate }) {
     </div>
   );
 }
+
+export default memo(ContactEditor);
