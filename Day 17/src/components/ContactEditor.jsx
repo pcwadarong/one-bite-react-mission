@@ -1,9 +1,9 @@
 import { useState, useRef, memo, useContext } from 'react';
 import './ContactEditor.css';
-import { Context } from '../App';
+import { ContactDispatchContext } from '../App';
 
 function ContactEditor() {
-  const { onCreate } = useContext(Context);
+  const { onCreate } = useContext(ContactDispatchContext);
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const [state, setState] = useState({

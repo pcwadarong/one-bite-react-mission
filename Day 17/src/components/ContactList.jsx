@@ -1,10 +1,10 @@
 import './ContactList.css';
 import ContactItem from './ContactItem';
 import { useContext } from 'react';
-import { Context } from '../App';
+import { ContactStateContext } from '../App';
 
 export default function ContactList() {
-  const { contacts } = useContext(Context);
+  const { contacts } = useContext(ContactStateContext);
   return (
     <div className="ContactList">
       <div className="title">Contact List</div>
