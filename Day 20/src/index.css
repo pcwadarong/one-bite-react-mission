@@ -1,52 +1,21 @@
+/* 엘리먼트 스타일, 리셋, 반응형, 기본 폰트 등을 설정 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
-  font-family: "SeoJiNi";
+  font-family: 'SeoJiNi';
   /* src: url("/seojyeoni.ttf") */
-  src: url("/wonsyong.ttf")
+  src: url('/wonsyong.ttf');
   /* src: url("/doram.ttf") */
 }
 
-:root {
-  font-family: "SeoJiNi";
-  line-height: 1.5;
-  font-weight: 400;
-}
-
+html,
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  @apply bg-gray-100 m-0 w-full;
+  font-family: "SeoJiNi";
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+#root {
+  @apply bg-white max-w-screen-sm w-full m-auto min-h-screen shadow-lg;
 }
