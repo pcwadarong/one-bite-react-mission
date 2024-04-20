@@ -5,7 +5,8 @@ import New from './pages/New';
 import Home from './pages/Home';
 import Notfound from './pages/Notfound';
 import Edit from './pages/Edit';
-import { getEmotionImage } from './utils/get-emotion-image';
+//import { getEmotionImage } from './utils/get-emotion-image';
+import Button from './components/Button';
 
 function App() {
   const nav = useNavigate();
@@ -15,14 +16,8 @@ function App() {
   };
   return (
     <div>
-      <div>
-        <img src={getEmotionImage(1)} alt="emotion1" />
-        <img src={getEmotionImage(5)} alt="emotion5" />
-      </div>
-      <Link to={'/'}> Home </Link>
-      <Link to={'/New'}> New </Link>
-      <Link to={'/Diary'}> Diary </Link>
-      <Link to={'/Edit'}> Edit </Link>
+      <Button />
+        
 
       <button onClick={onClickBtn}>btn to Edit</button>
       <Routes>

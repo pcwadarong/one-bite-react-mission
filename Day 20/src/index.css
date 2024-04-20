@@ -17,5 +17,5 @@ body {
 }
 
 #root {
-  @apply bg-white max-w-screen-sm w-full m-auto min-h-screen shadow-lg;
+  @apply bg-white max-w-xl w-full m-auto min-h-screen shadow-lg;
 }
