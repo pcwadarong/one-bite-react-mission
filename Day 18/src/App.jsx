@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import Diary from './pages/Diary';
+import New from './pages/New';
+import Home from './pages/Home';
+import Notfound from './pages/Notfound';
+import Edit from './pages/Edit';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const nav = useNavigate();
 
+  const onClickBtn = () => {
+    nav('/Edit');
+  };
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <Link to={'/'}> Home </Link>
+      <Link to={'/New'}> New </Link>
+      <Link to={'/Diary'}> Diary </Link>
+      {/* <Link to={'/Edit'}> Edit </Link> */}
+
+      <button onClick={onClickBtn}>btn to Edit</button>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/New" element={<New />}></Route>
+        <Route path="/Diary/:id" element={<Diary />}></Route>
+        <Route path="*" element={<Notfound />}></Route>
+        <Route path="/Edit/:id" element={<Edit />}></Route>
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
