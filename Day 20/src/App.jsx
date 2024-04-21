@@ -10,15 +10,21 @@ import Button from './components/Button';
 const mockData = [
   {
     id: 1,
-    createdDate: new Date().getTime(),
+    createdDate: new Date("2024-04-22").getTime(),
     emotionId: 1,
     content: '1번 내용',
   },
   {
     id: 2,
-    createdDate: new Date().getTime(),
+    createdDate: new Date("2024-04-20").getTime(),
     emotionId: 2,
     content: '2번 내용',
+  },
+  {
+    id: 3,
+    createdDate: new Date("2024-03-04").getTime(),
+    emotionId: 3,
+    content: '3번 내용',
   },
 ];
 
