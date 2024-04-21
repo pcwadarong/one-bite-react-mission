@@ -9,9 +9,6 @@
   /* src: url('/wonsyong.ttf'); */
   /* src: url("/doram.ttf") */
 }
-* {
-  @apply text-gray-500;
-}
 
 html,
 body {
@@ -20,5 +17,5 @@ body {
 }
 
 #root {
-  @apply bg-background max-w-xl w-full m-auto min-h-screen shadow-lg px-5;
+  @apply bg-background max-w-xl w-full m-auto min-h-screen shadow-lg px-5 text-gray-500;
 }

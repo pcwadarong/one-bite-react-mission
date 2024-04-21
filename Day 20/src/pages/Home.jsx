@@ -4,12 +4,11 @@ import DiaryList from '../components/DiaryList';
 
 export default function Home() {
   return (
-    // DiaryList
     <div>
       <Header
         title={'4월'}
-        leftChild={<Button text={'<'} className={'px-6'} />}
-        rightChild={<Button text={'>'} className={'px-6'} />}
+        leftChild={<Button text={'<'} isRound={'isRound'}/>}
+        rightChild={<Button text={'>'} isRound={'isRound'}/>}
       />
       <DiaryList />
     </div>
