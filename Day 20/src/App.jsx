@@ -5,24 +5,23 @@ import New from './pages/New';
 import Home from './pages/Home';
 import Notfound from './pages/Notfound';
 import Edit from './pages/Edit';
-import Button from './components/Button';
 
 const mockData = [
   {
     id: 1,
-    createdDate: new Date("2024-04-22").getTime(),
+    createdDate: new Date('2024-04-22').getTime(),
     emotionId: 1,
     content: '1번 내용',
   },
   {
     id: 2,
-    createdDate: new Date("2024-04-20").getTime(),
+    createdDate: new Date('2024-04-20').getTime(),
     emotionId: 2,
     content: '2번 내용',
   },
   {
     id: 3,
-    createdDate: new Date("2024-03-04").getTime(),
+    createdDate: new Date('2024-03-04').getTime(),
     emotionId: 3,
     content: '3번 내용',
   },
@@ -60,7 +59,7 @@ function App() {
       type: 'CREATE',
       data: {
         id: idRef.current++,
-        createdDate: new Date().getTime(),
+        createdDate,
         emotionId,
         content,
       },
@@ -83,7 +82,7 @@ function App() {
   // delete diary
   const onDelete = (id) => {
     dispatch({
-      type: 'CREATE',
+      type: 'DELETE',
       data: {
         id,
       },
@@ -93,7 +92,7 @@ function App() {
   return (
     <div>
       <DiaryStateContext.Provider value={data}>
-        <DiaryDispatchContext.Provider value={(onCreate, onEdit, onDelete)}>
+        <DiaryDispatchContext.Provider value={{ onCreate, onEdit, onDelete }}>
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/New" element={<New />}></Route>
