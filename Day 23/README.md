@@ -1,6 +1,7 @@
-# React : Edit, Diary page
+# React : Emotional Diary
 
-
-- tailwind CSS, Vite
-
-<!-- ![img](https://github.com/pcwadarong/one-bite-react-mission/) -->
+- set thumbnail title, content, image
+- set favicon
+- change titles according to each page
+- publish by vercel
+- https://emotional-diary-chaens-projects.vercel.app/
