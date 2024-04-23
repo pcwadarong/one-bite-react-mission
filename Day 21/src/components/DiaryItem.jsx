@@ -6,8 +6,16 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 
 import Button from './Button';
-import { getEmotionImage, colorVariants } from '../utils/get-emotion-image';
+import { getEmotionImage } from '../utils/get-emotion-image';
 import { DiaryDispatchContext } from '../App';
+
+const colorVariants = {
+  1: 'bg-emotion1',
+  2: 'bg-emotion2',
+  3: 'bg-emotion3',
+  4: 'bg-emotion4',
+  5: 'bg-emotion5',
+};
 
 const DiaryItem = ({ id, emotionId, createdDate, content }) => {
   const emotionColor = colorVariants[emotionId];
