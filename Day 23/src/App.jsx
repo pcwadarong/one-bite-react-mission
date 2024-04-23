@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { useReducer, useRef, createContext, useEffect } from 'react';
+import { useState, useReducer, useRef, createContext, useEffect } from 'react';
 import Diary from './pages/Diary';
 import New from './pages/New';
 import Home from './pages/Home';
@@ -43,6 +43,7 @@ export const DiaryStateContext = createContext();
 export const DiaryDispatchContext = createContext();
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [data, dispatch] = useReducer(reducer, []);
   const idRef = useRef(0);
 
@@ -86,18 +87,28 @@ function App() {
     const storedData = localStorage.getItem('diary');
     if (!storedData) return;
     const parseData = JSON.parse(storedData);
+    if (!Array.isArray(parseData)) {
+      setIsLoading(false);
+      return;
+    }
     let maxId = 0;
     parseData.forEach((item) => {
       if (Number(item.id) > maxId) {
         maxId = item.id;
       }
     });
+    idRef.current = maxId + 1;
     dispatch({
       type: 'INIT',
       data: parseData,
     });
+    setIsLoading(false);
   }, []);
 
+  if (isLoading){
+    return <div>Loading...</div>
+  }
+  
   return (
     <div>
       <DiaryStateContext.Provider value={data}>
