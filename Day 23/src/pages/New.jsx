@@ -4,14 +4,16 @@ import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { DiaryDispatchContext } from '../App';
+import usePageTitle from '../hooks/usePageTitle';
 
 export default function New() {
+  usePageTitle('새로운 일기 작성하기');
   const { onCreate } = useContext(DiaryDispatchContext);
 
   const nav = useNavigate();
   const handleOnSubmit = (input) => {
     onCreate(input.createdDate.getTime(), input.emotionId, input.content);
-    nav("/", { replace: true });
+    nav('/', { replace: true });
   };
 
   return (

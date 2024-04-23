@@ -6,11 +6,13 @@ import Header from '../components/Header';
 import Button from '../components/Button';
 import Editor from '../components/Editor';
 import useDiary from '../hooks/useDiary';
+import usePageTitle from '../hooks/usePageTitle';
 
 export default function Edit() {
   const params = useParams();
   const nav = useNavigate();
   const { onEdit, onDelete } = useContext(DiaryDispatchContext);
+  usePageTitle(`${params.id}번 일기 수정하기`);
 
   const curDiaryItem = useDiary(params.id);
 
