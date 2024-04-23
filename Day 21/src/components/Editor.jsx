@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import Button from './Button';
 import EmotionItem from './EmotionItem';
 
@@ -22,6 +22,7 @@ const getStringDate = (targetDate) => {
 
 export default function Editor({ onSubmit }) {
   const textareaRef = useRef();
+  const nav = useNavigate();
 
   const [input, setInput] = useState({
     createdDate: new Date(),
@@ -91,7 +92,7 @@ export default function Editor({ onSubmit }) {
         ></textarea>
       </section>
       <section className="flex justify-between mt-5 pb-5">
-        <Button text={'취소하기'} />
+        <Button text={'취소하기'} onClick={() => nav(-1)}/>
         <Button
           text={'작성완료'}
           color={'green'}

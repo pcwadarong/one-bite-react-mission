@@ -11,7 +11,7 @@ export default function New() {
   const nav = useNavigate();
   const handleOnSubmit = (input) => {
     onCreate(input.createdDate.getTime(), input.emotionId, input.content);
-    //nav("/", { replace: true });
+    nav("/", { replace: true });
   };
 
   return (
