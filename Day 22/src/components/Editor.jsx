@@ -1,15 +1,8 @@
-import { useState, useRef } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from './Button';
 import EmotionItem from './EmotionItem';
-
-const emotionList = [
-  { emotionId: 1, emotionName: '완전 좋음' },
-  { emotionId: 2, emotionName: '좋음' },
-  { emotionId: 3, emotionName: '그럭저럭' },
-  { emotionId: 4, emotionName: '나쁨' },
-  { emotionId: 5, emotionName: '끔찍함' },
-];
+import { emotionList } from '../utils/constants'
 
 const getStringDate = (targetDate) => {
   // date => yyyy-mm-dd
@@ -20,7 +13,7 @@ const getStringDate = (targetDate) => {
   return `${year}-${month}-${date}`;
 };
 
-export default function Editor({ onSubmit }) {
+export default function Editor({ initData, onSubmit }) {
   const textareaRef = useRef();
   const nav = useNavigate();
 
@@ -29,6 +22,15 @@ export default function Editor({ onSubmit }) {
     emotionId: 3,
     content: '',
   });
+
+  useEffect(() => {
+    if (initData) {
+      setInput({
+        ...initData,
+        createdDate: new Date(Number(initData.createdDate)),
+      });
+    }
+  }, [initData]);
 
   const onChangeInput = (e) => {
     let { name, value } = e.target;
@@ -86,13 +88,14 @@ export default function Editor({ onSubmit }) {
           id=""
           cols="30"
           rows="10"
+          value={input.content}
           ref={textareaRef}
           placeholder="오늘은 어땠나요?"
           onChange={onChangeInput}
         ></textarea>
       </section>
       <section className="flex justify-between mt-5 pb-5">
-        <Button text={'취소하기'} onClick={() => nav(-1)}/>
+        <Button text={'취소하기'} onClick={() => nav(-1)} />
         <Button
           text={'작성완료'}
           color={'green'}
