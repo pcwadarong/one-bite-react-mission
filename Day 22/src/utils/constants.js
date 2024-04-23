@@ -5,3 +5,11 @@ export const emotionList = [
     { emotionId: 4, emotionName: '나쁨' },
     { emotionId: 5, emotionName: '끔찍함' },
   ];
+
+  export const colorVariants = {
+    1: 'bg-emotion1',
+    2: 'bg-emotion2',
+    3: 'bg-emotion3',
+    4: 'bg-emotion4',
+    5: 'bg-emotion5',
+  };

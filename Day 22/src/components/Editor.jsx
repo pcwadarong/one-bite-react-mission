@@ -54,7 +54,7 @@ export default function Editor({ initData, onSubmit }) {
   return (
     <section>
       <section>
-        <h4 className="editorTitle">오늘의 날짜</h4>
+        <h4 className="title">오늘의 날짜</h4>
         <input
           name="createdDate"
           value={getStringDate(input.createdDate)}
@@ -64,7 +64,7 @@ export default function Editor({ initData, onSubmit }) {
         />
       </section>
       <section>
-        <h4 className="editorTitle">오늘의 감정</h4>
+        <h4 className="title">오늘의 감정</h4>
         <div className="flex justify-around gap-2">
           {emotionList.map((item) => (
             <EmotionItem
@@ -81,7 +81,7 @@ export default function Editor({ initData, onSubmit }) {
         </div>
       </section>
       <section>
-        <h4 className="editorTitle">오늘의 일기</h4>
+        <h4 className="title">오늘의 일기</h4>
         <textarea
           className="p-5 rounded-lg w-full min-h-48 resize-y"
           name="content"

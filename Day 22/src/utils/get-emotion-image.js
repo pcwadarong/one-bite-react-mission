@@ -20,11 +20,3 @@ export function getEmotionImage(emotionId) {
       return null;
   }
 }
-
-export const colorVariants = {
-  1: 'bg-emotion1',
-  2: 'bg-emotion2',
-  3: 'bg-emotion3',
-  4: 'bg-emotion4',
-  5: 'bg-emotion5',
-};

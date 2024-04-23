@@ -1,4 +1,5 @@
-import { colorVariants, getEmotionImage } from '../utils/get-emotion-image';
+import { getEmotionImage } from '../utils/get-emotion-image';
+import { colorVariants } from '../utils/constants';
 import clsx from 'clsx';
 
 export default function EmotionItem({

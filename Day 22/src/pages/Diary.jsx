@@ -13,7 +13,7 @@ export default function Diary() {
     <div>
       <Header
         leftChild={<Button text={'< 뒤로가기'} onClick={() => nav(-1)} />}
-        title={'기록'}
+        title={`${params.createdDate}기록`}
         rightChild={
           <Button
             text={'수정하기'}
