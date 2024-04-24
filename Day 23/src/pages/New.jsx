@@ -7,9 +7,8 @@ import { DiaryDispatchContext } from '../App';
 import usePageTitle from '../hooks/usePageTitle';
 
 export default function New() {
-  usePageTitle('새로운 일기 작성하기');
   const { onCreate } = useContext(DiaryDispatchContext);
-
+  usePageTitle('새로운 일기 작성하기');
   const nav = useNavigate();
   const handleOnSubmit = (input) => {
     onCreate(input.createdDate.getTime(), input.emotionId, input.content);

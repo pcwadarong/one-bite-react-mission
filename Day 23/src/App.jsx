@@ -85,12 +85,12 @@ function App() {
 
   useEffect(() => {
     const storedData = localStorage.getItem('diary');
-    if (!storedData) return;
-    const parseData = JSON.parse(storedData);
-    if (!Array.isArray(parseData)) {
+    if (!storedData) {
       setIsLoading(false);
       return;
     }
+    const parseData = JSON.parse(storedData);
+    if (!Array.isArray(parseData)) return;
     let maxId = 0;
     parseData.forEach((item) => {
       if (Number(item.id) > maxId) {
@@ -105,10 +105,10 @@ function App() {
     setIsLoading(false);
   }, []);
 
-  if (isLoading){
-    return <div>Loading...</div>
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
-  
+
   return (
     <div>
       <DiaryStateContext.Provider value={data}>

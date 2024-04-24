@@ -13,7 +13,6 @@ export default function Edit() {
   const nav = useNavigate();
   const { onEdit, onDelete } = useContext(DiaryDispatchContext);
   usePageTitle(`${params.id}번 일기 수정하기`);
-
   const curDiaryItem = useDiary(params.id);
 
   const handleOnSubmit = (input) => {
